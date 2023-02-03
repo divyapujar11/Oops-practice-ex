@@ -3,7 +3,7 @@ package oops.practice.discountsystem;
 import java.util.Date;
 
 public class Visit {
-	private Customer customer;
+	private Customer name;
 	private Date date;
 	private double serviceExpense;
 	private double productExpense;
@@ -11,16 +11,15 @@ public class Visit {
 	public Visit() {
 	}
 
-	public Visit(Customer customer, Date date, double serviceExpense, double productExpense) {
+	public Visit(Customer name, Date date) {
 		super();
-		this.customer = customer;
+		this.name = name;
 		this.date = date;
-		this.serviceExpense = serviceExpense;
-		this.productExpense = productExpense;
+		
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Customer getName() {
+		return name;
 	}
 
 	
@@ -42,12 +41,13 @@ public class Visit {
 	}
 	
 	public double getTotalExpense() {
-		return 00.0;
+		return  (serviceExpense - (serviceExpense * DiscountRate.getServiceDiscountRate(name.getMemberType()))) +
+                (productExpense - (productExpense * DiscountRate.getProductDiscountRate(name.getMemberType())));
 	}
 
 	@Override
 	public String toString() {
-		return "Visit [customer=" + customer + ", date=" + date + ", serviceExpense=" + serviceExpense
+		return "Visit [customer=" + name + ", date=" + date + ", serviceExpense=" + serviceExpense
 				+ ", productExpense=" + productExpense + "]";
 	}
 
