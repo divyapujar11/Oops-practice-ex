@@ -39,4 +39,9 @@ public class Customer {
 	public void setMemberType(String memberType) {
 		this.memberType = memberType;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", member=" + member + ", memberType=" + memberType + "]";
+	}
 }
